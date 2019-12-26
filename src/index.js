@@ -91,8 +91,8 @@ class Notifications extends Component {
 
   fetchData = () => {
     this.setState({ ...this.state, loading: true }, () => {
-      this.props.fetchData();
-      this.setState({ ...this.state, loading: false });
+      const data = { ...this.state.data, ...this.props.fetchData() };
+      this.setState({ ...this.state, data, loading: false });
     });
   };
 
